@@ -22,7 +22,7 @@ func BenchmarkNewLockFreeQueue(b *testing.B) {
 		b.Run("cpus_"+ strconv.Itoa(cpus), func(b *testing.B) {
 			b.ResetTimer()
 			var c int64
-			q := NewLockFreeQueue()
+			q := NewBoundedQueue(10)
 			b.RunParallel(func(pb *testing.PB) {
 					for pb.Next(){
 						i := int(atomic.AddInt64(&c, 1)-1) % length

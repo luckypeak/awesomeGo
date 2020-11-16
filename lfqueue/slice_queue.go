@@ -26,6 +26,6 @@ func (q *SliceQueue)DeQueue()(v interface{})  {
 		return
 	}
 	v = q.queue[0]
-	q.queue = q.queue[1:len(q.queue)]
+	q.queue = q.queue[1:]
 	return
 }
