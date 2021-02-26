@@ -37,6 +37,7 @@ func (q *LockFreeQueue) EnQueue(val interface{}) {
 				}
 			}else{
 				atomic.CompareAndSwapPointer(&q.tail, tail, next)
+
 			}
 		}
 
